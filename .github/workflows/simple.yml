@@ -15,7 +15,7 @@ jobs:
           java -version
       - name: python command
         run: |
-          improt platform
+          import platform
           print(platform.processor())
         shell: python
   run-windows-commands:
