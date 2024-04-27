@@ -12,3 +12,18 @@ jobs:
         run: |
           node -v
           npm -v
+          java -version
+      - name: python command
+        run: |
+          improt platform
+          print(platform.processor())
+        shell: python
+  run-windows-commands:
+    runs-on: windows-latest
+    needs: ["run-shell-commands"]
+    steps:
+      - name: Directory PowerShell
+        run: Get-Location
+      - name: Dierectory Bash
+        run: pwd
+        shell: bash
