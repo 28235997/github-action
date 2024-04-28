@@ -20,6 +20,7 @@ jobs:
         shell: python
   run-windows-commands:
     runs-on: windows-latest
+    # this job depends on the last job
     needs: ["run-shell-commands"]
     steps:
       - name: Directory PowerShell
