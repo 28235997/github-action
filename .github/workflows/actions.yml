@@ -28,6 +28,6 @@ jobs:
     steps:
       - name: List Files
         run: |
-          pws
+          pwd
           ls
     
