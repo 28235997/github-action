@@ -1,0 +1,29 @@
+name: Matrix
+
+on: pull_request
+
+jobs:
+  node-version:
+    strategy: 
+# 矩阵，相当于2*2运行四次
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        node_version: [8, 10]
+        #包含某些，注意里面有个新字段，在这次的时候会有新字段打印
+        include:
+          - os: ubuntu-latest
+            node_version: 8
+            is_ubuntu_8: "true"
+        # 排除
+        exclude:
+           - os: ubuntu-latest
+             node_version: 10
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: Log node version
+        run: node -v
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node_version}}
+      - name: Log node version
+        run: node -v
